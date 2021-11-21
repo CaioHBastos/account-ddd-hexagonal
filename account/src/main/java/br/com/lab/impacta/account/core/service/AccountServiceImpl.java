@@ -1,8 +1,8 @@
-package br.com.lab.impacta.account.core.domain.service;
+package br.com.lab.impacta.account.core.service;
 
-import br.com.lab.impacta.account.core.domain.model.response.AccountDomainModelResponse;
-import br.com.lab.impacta.account.core.domain.port.in.AccountServicePortIn;
-import br.com.lab.impacta.account.core.domain.port.out.AccountPersistencePortOut;
+import br.com.lab.impacta.account.core.domain.response.AccountDomainResponse;
+import br.com.lab.impacta.account.core.port.in.AccountServicePortIn;
+import br.com.lab.impacta.account.core.port.out.AccountPersistencePortOut;
 import br.com.lab.impacta.account.handler.exception.AccountDontExistsException;
 import br.com.lab.impacta.account.handler.exception.AccountWithoutBalanceException;
 import lombok.RequiredArgsConstructor;
@@ -30,8 +30,8 @@ public class AccountServiceImpl implements AccountServicePortIn {
     private String descriptionExceptionAccountWithoutBalance;
 
     @Override
-    public AccountDomainModelResponse findAccount(Long accountId) {
-        Optional<AccountDomainModelResponse> account = accountPersistence.findAccount(accountId);
+    public AccountDomainResponse findAccount(Long accountId) {
+        Optional<AccountDomainResponse> account = accountPersistence.findAccount(accountId);
 
         if (account.isEmpty())
             throw new AccountDontExistsException(messageExceptionAccountDontExists,
@@ -42,7 +42,7 @@ public class AccountServiceImpl implements AccountServicePortIn {
 
     @Override
     public void debitAccount(Long accountId, Double valueOfDebit) {
-        AccountDomainModelResponse account = this.findAccount(accountId);
+        AccountDomainResponse account = this.findAccount(accountId);
 
         boolean debited = account.debit(valueOfDebit);
 

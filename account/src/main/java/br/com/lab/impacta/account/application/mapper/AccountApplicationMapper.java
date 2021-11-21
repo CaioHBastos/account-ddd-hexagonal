@@ -1,11 +1,11 @@
 package br.com.lab.impacta.account.application.mapper;
 
 import br.com.lab.impacta.account.application.dto.response.AccountBalanceResponse;
-import br.com.lab.impacta.account.core.domain.model.response.AccountDomainModelResponse;
+import br.com.lab.impacta.account.core.domain.response.AccountDomainResponse;
 
-public class AccountAdapter {
+public class AccountApplicationMapper {
 
-    public static AccountBalanceResponse toDtoBalance(AccountDomainModelResponse account) {
+    public static AccountBalanceResponse toDtoBalance(AccountDomainResponse account) {
         return new AccountBalanceResponse(account.getId(), account.getBalance());
     }
 }

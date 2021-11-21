@@ -1,15 +1,15 @@
-package br.com.lab.impacta.account.core.domain.model.response;
+package br.com.lab.impacta.account.core.domain.response;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class AccountDomainModelResponse {
+public class AccountDomainResponse {
 
     private Long id;
     private Long number;
-    private PersonDomainModelResponse customer;
+    private PersonDomainResponse customer;
     private Double balance;
 
     public boolean debit(Double valueOfDebit) {

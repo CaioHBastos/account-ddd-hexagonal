@@ -1,4 +1,4 @@
-package br.com.lab.impacta.account.adapter.out.entity;
+package br.com.lab.impacta.account.adapter.out.persistence.entity;
 
 import lombok.Data;
 
