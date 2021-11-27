@@ -20,6 +20,29 @@ Onde pode se conectar diversas pontas, como as controllers e as de persistencia.
 Os adaptadores de saída é onde estão os plugins que irá se conectar com o banco de dados na aplicação de ACCOUNT,
 (parte que é adaptador de saída da aplicação)
 
-### ADAPTER INT
-Os adaptadores de entrada é onde estão os plugins que irá se conectar com a controller por exemplo na aplicação de ACCOUNT,
+### ADAPTER IN
+Os adaptadores de entrada é onde estão os plugins que irá se conectar com a conoller por exemplo na aplicação de ACCOUNT,
 (parte que é adaptador de entrada da aplicação)
+
+##JAEGER
+Quando se trata de comunicação de microserviços, é importante ter uma forta de rastreiar a comunição dos serviços, uma vez que pode
+ser complexo o debug. Com isso implementamos o Jaeger para a monitoria dos tracing.
+Para executar basta seguir o passo a passo abaixo:
+
+1. Imagem docker:
+```bash
+docker run -d --name jaeger -p 16686:16686 -p 6831:6831/udp jaegertracing/all-in-one:1.22
+```
+
+2. Abrir no seu Browser
+```bash
+http://localhost:16686/search
+```
+
+2. Executar a aplicação
+```bash
+localhost:8081/api/v1/accounts/1/balance - GET
+localhost:8081/api/v1/accounts/1/debit - POST
+
+Realizar o reload no Jaeger e com isso irá ser identificado a aplicação 
+```
