@@ -24,7 +24,7 @@ Os adaptadores de saída é onde estão os plugins que irá se conectar com o ba
 Os adaptadores de entrada é onde estão os plugins que irá se conectar com a conoller por exemplo na aplicação de ACCOUNT,
 (parte que é adaptador de entrada da aplicação)
 
-##JAEGER
+## JAEGER
 Quando se trata de comunicação de microserviços, é importante ter uma forta de rastreiar a comunição dos serviços, uma vez que pode
 ser complexo o debug. Com isso implementamos o Jaeger para a monitoria dos tracing.
 Para executar basta seguir o passo a passo abaixo:
