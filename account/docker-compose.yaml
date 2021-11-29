@@ -1,0 +1,17 @@
+version: '3'
+services:
+  account-hexagonal:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    image: account:0.0.1-SNAPSHOT
+    ports:
+    - '8081:8081'
+    environment:
+      - ADDITIONAL_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 -Xmx1G -Xms128m -XX:MaxMetaspaceSize=128m
+      - PROFILE=dev
+    networks:
+      - networks-bank-ddd
+networks:
+  networks-bank-ddd:
+    driver: bridge
